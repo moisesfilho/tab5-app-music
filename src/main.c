@@ -36,15 +36,6 @@ static void update_player_view(void)
     }
 }
 
-static void on_toggle_play(void *user_data)
-{
-    (void)user_data;
-    s_playing = !s_playing;
-    tab5_sound_play_beep(s_playing ? 1600 : 1000, 30);
-    tab5_ui_show_toast(s_playing ? "Reproduzindo musica" : "Musica pausada", 1500);
-    update_player_view();
-}
-
 static void app_open_file(const char *filepath)
 {
     if (filepath != NULL && filepath[0] != '\0') {
@@ -61,7 +52,6 @@ static void app_init(void)
 {
     tab5_system_log(2, "tab5_music", "Aplicativo Musica iniciado");
     tab5_ui_app_bar_set_title("Musica");
-    tab5_ui_app_bar_add_action_button("LV_SYMBOL_PLAY", on_toggle_play, NULL);
     update_player_view();
 }
 
