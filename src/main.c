@@ -434,6 +434,11 @@ static void app_open_file(const char *path)
     }
 }
 
+TAB5_APP_EXPORT void tab5_app_on_open_file(const char *path)
+{
+    app_open_file(path);
+}
+
 static void app_init(void)
 {
     tab5_system_log(2, "tab5_music", "Aplicativo Musica iniciado");
